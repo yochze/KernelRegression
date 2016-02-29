@@ -94,7 +94,7 @@ class Adi:
 
 
         # Linear programming
-        res = linprog(F, A_ub=A, b_ub=ub, bounds=None, options={"disp": True})
+        res = linprog(F, A_ub=A, b_ub=ub, bounds=None, options={"disp": False})
         return(res)
 
     # Phase 2
@@ -160,7 +160,6 @@ class Adi:
 
         zipped = zip(ref, hyp)
 
-        #print(list(zipped))
 
 
         for i,z in enumerate(hyp):
@@ -175,7 +174,6 @@ def main(L, distance_function, data_size, train_ratio):
     adi = Adi('data.csv', data_size, train_ratio, L)
     dist_matrix = adi.dist_matrix
 
-    # print(dist_matrix)
 
     lprog = adi.lin_prog(adi.train, dist_matrix)
 

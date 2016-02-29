@@ -39,16 +39,19 @@ class Nadarya:
     def kernel(self,x,x_i,H):
         """
            K_h_x = a*e^(-d(p1,p2)/h^2)
-           sum ( K_h_x * ( x - x_i ) * y_i )
-           /
-           sum ( K_h_x * (x - x_i ) )
         """
         a = 1 
         k_i = a * math.exp(-1 * (distance.euclidean(x,x_i)) / (H ** 2)) 
-        
+
         return k_i
 
     def compute(self,x, xs, ys, H):
+        """
+        sum ( K_h_x * ( x - x_i ) * y_i )
+           /
+       sum ( K_h_x * (x - x_i ) )
+
+        """
         nom_sum = 0
         denom_sum = 0
         for i,x_i in enumerate(xs):
@@ -58,15 +61,15 @@ class Nadarya:
 
 
         return (nom_sum / denom_sum)
-    
-    def compare_results(self, hyp,ref):
-            ec = len(hyp) # elements count
-            error_sum = 0
-            zipped = zip(ref, hyp)
 
-            for i,z in enumerate(hyp):
-                error_sum += abs(z - ref[i])
-            return error_sum / ec 
+    def compare_results(self, hyp,ref):
+        ec = len(hyp) # elements count
+        error_sum = 0
+        zipped = zip(ref, hyp)
+
+        for i,z in enumerate(hyp):
+            error_sum += abs(z - ref[i])
+        return error_sum / ec 
 
 
 def main(H, data_size, train_ratio):
@@ -77,7 +80,7 @@ def main(H, data_size, train_ratio):
 
     hyp_res = []
     xs_range = int(data_size * train_ratio)
-    
+
     start = time.time()
     for point in nadarya.test:
         hyp_res.append(nadarya.compute(point, nadarya.train, nadarya.train_labels, H ))

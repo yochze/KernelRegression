@@ -1,0 +1,3 @@
+L	score	duration	distance_function	train_ratio	data_size
+1	3.20166007713	0.947675943375	euclidean	0.5	200
+0.1	3.13369845541	0.876704931259	euclidean	0.5	200
