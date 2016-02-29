@@ -1,5 +1,13 @@
+=== Nadarya-Watson
+
 H    	 score         	 duration       	 train_ratio 	 data_size
 1    	 2.67111022824 	 0.797292947769 	 0.5         	 200
 10   	 2.30759146891 	 0.995136022568 	 0.5         	 200
 100  	 7.41630700099 	 0.947439193726 	 0.5         	 200
 1000 	 7.62736271566 	 0.933564901352 	 0.5         	 200
+
+=== Adi 
+
+L   	 score         	 duration       	 distance_function 	 train_ratio 	 data_size
+1   	 3.20166007713 	 0.947675943375 	 euclidean         	 0.5         	 200
+0.1 	 3.13369845541 	 0.876704931259 	 euclidean         	 0.5         	 200
